@@ -27,6 +27,13 @@ namespace JobBoard
         List<JobOpening> allJobs = JobOpening.GetJobs();
         return View["job_board.cshtml", allJobs];
       };
+
+      Get["/search_form"] = _ => View["search_form.cshtml"];
+
+      Post["/search_jobs"] = _ => {
+        List<JobOpening> searchedJobs = JobOpening.SearchJobs(Request.Form["search-keyword"]);
+        return View["job_board.cshtml",searchedJobs];
+      };
     }
   }
 }

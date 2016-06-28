@@ -18,6 +18,7 @@ namespace JobBoard.Objects
     {
       return _title;
     }
+
     public string GetDescription()
     {
       return _description;
@@ -26,13 +27,28 @@ namespace JobBoard.Objects
     public ContactInfo GetContact() {
       return _contactInfo;
     }
+
     public void Save()
     {
       _jobOpenings.Add(this);
     }
+
     public static List<JobOpening> GetJobs()
     {
       return _jobOpenings;
     }
+
+    public static List<JobOpening> SearchJobs(string searchTerm)
+    {
+      List<JobOpening> searchedList = new List<JobOpening> {};
+      foreach(JobOpening job in _jobOpenings)
+      {
+        if (job._title.ToLower().Contains(searchTerm.ToLower()) || job._description.ToLower().Contains(searchTerm.ToLower())) {
+          searchedList.Add(job);
+        }
+      }
+      return searchedList;
+    }
+
   }
 }
