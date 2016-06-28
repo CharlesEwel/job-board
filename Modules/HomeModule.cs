@@ -8,9 +8,20 @@ namespace JobBoard
   {
     public HomeModule()
     {
+      Get["/"] = _ => View["home.cshtml"];
 
+      Get["/add_job"] = _ => View["add_job.cshtml"];
 
-
+      Post["/post_job"] = _ => {
+        JobOpening newJobOpening = new JobOpening (
+          Request.Form["title"],
+          Request.Form["description"],
+          Request.Form["name"],
+          Request.Form["phone"],
+          Request.Form["email"]
+        );
+        return View["view_job.cshtml",newJobOpening];
+      };
     }
   }
 }
