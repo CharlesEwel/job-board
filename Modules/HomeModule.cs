@@ -20,7 +20,12 @@ namespace JobBoard
           Request.Form["phone"],
           Request.Form["email"]
         );
+        newJobOpening.Save();
         return View["view_job.cshtml",newJobOpening];
+      };
+      Get["/view_all"] = _ => {
+        List<JobOpening> allJobs = JobOpening.GetJobs();
+        return View["job_board.cshtml", allJobs];
       };
     }
   }

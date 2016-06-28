@@ -1,0 +1,11 @@
+.details {
+  display: none;
+}
+
+.job-title {
+  text-decoration: underline;
+}
+
+.job-title:hover {
+  cursor: pointer;
+}

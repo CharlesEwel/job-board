@@ -20,6 +20,9 @@ This webapp allows users to post jobs to a list, then view them all or search th
 The program should handle: | Example Input | Example Output
 ----- | ----- | -----
 Add a single job | Title: Jr. Web Developer Description: Build webapps using HTML, CSS, JavaScript, and C#. Contact Info: John Smith, 503-111-1111, johnsmith@email | Title: Jr. Web Developer Description: Build webapps using HTML, CSS, JavaScript, and C#. Contact Info: John Smith, 503-111-1111, johnsmith@email
+Create a List of Jobs|Multiple Inputs like the above entered|Jobs: Jr Web Developer, QA Tester, Sales Associate
+Display details about job on click|User clicks a job title from list|Description and Contact Info appear
+Search by keyword||
 
 ## Technologies Used
 
