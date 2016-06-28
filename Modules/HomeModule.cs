@@ -16,6 +16,7 @@ namespace JobBoard
         JobOpening newJobOpening = new JobOpening (
           Request.Form["title"],
           Request.Form["description"],
+          Request.Form["salary"],
           Request.Form["name"],
           Request.Form["phone"],
           Request.Form["email"]
@@ -31,7 +32,7 @@ namespace JobBoard
       Get["/search_form"] = _ => View["search_form.cshtml"];
 
       Post["/search_jobs"] = _ => {
-        List<JobOpening> searchedJobs = JobOpening.SearchJobs(Request.Form["search-keyword"]);
+        List<JobOpening> searchedJobs = JobOpening.SearchJobs(Request.Form["search-keyword"],Request.Form["min-salary"]);
         return View["job_board.cshtml",searchedJobs];
       };
     }

@@ -3,32 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>Job Board</title>
-    <link rel='stylesheet' href='Content/css/styles.css'>
-    <script src="Content/js/jquery-3.0.0.js"></script>
+    <link href="Content/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link rel='stylesheet' href='Content/css/styles.css' type="text/css">    <script src="Content/js/jquery-3.0.0.js"></script>
     <script src="Content/js/scripts.js"></script>
   </head>
   <body>
-    <h1>Job Board</h1>
-    @{int jobIndex=0;}
-    <ul>
-      @foreach(var job in Model)
-      {
-        @{string detailsID="details"+jobIndex;}
-        <li class="job-title" jobIndex=@jobIndex>@job.GetTitle()</li>
-        <ul class="details" id=@detailsID>
-          <li>@job.GetDescription()</li>
-          <li>@job.GetContact().GetName()</li>
-          <li>@job.GetContact().GetPhoneNumber()</li>
-          <li>@job.GetContact().GetEmail()</li>
-        </ul>
-        @{jobIndex++;}
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Job Board</h1>
+      </div>
+      @{int jobIndex=0;}
+      <ul>
+        @foreach(var job in Model)
+        {
+          @{string detailsID="details"+jobIndex;}
+          <li class="job-title" jobIndex=@jobIndex>@job.GetTitle()</li>
+          <ul class="details" id=@detailsID>
+            <li>@job.GetDescription()</li>
+            <li>@job.GetSalary()</li>
+            <li>@job.GetContact().GetName()</li>
+            <li>@job.GetContact().GetPhoneNumber()</li>
+            <li>@job.GetContact().GetEmail()</li>
+          </ul>
+          @{jobIndex++;}
+        }
+        @{if (jobIndex==0) {
+          <p>Sorry, no jobs matched your search criteria.</p>
+        }
       }
-    </ul>
-    <br>
-    <p>
-      <a href="/search_form">Search Jobs</a>
-      <a href="/add_job">Add Another Job</a>
-      <a href="/">Home</a>
-    </p>
+      </ul>
+      <br>
+      <p>
+        <a href="/search_form">Search Jobs</a>
+        <a href="/add_job">Add Another Job</a>
+        <a href="/">Home</a>
+      </p>
+    </div>
   </body>
 </html>

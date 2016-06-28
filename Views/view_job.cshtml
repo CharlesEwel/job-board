@@ -1,9 +1,25 @@
-<h3>@Model.GetTitle()</h3>
-<p>@Model.GetDescription()</p>
-<p>Contact Info:</p>
-<p>@Model.GetContact().GetName()</p>
-<p>@Model.GetContact().GetPhoneNumber()</p>
-<p>@Model.GetContact().GetEmail()</p>
-
-<p><a href="/view_all">View All Jobs</a></p>
-<p><a href="/add_job">Add another Job</a></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="Content/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <link rel='stylesheet' href='Content/css/styles.css' type="text/css">
+    <title>View Job</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Your job has been submitted.</h1>
+      </div>
+      <h3>@Model.GetTitle()</h3>
+      <p>@Model.GetDescription()</p>
+      <p>@Model.GetSalary()</p>
+      <p>Contact Info:</p>
+      <p>@Model.GetContact().GetName()</p>
+      <p>@Model.GetContact().GetPhoneNumber()</p>
+      <p>@Model.GetContact().GetEmail()</p>
+      <p><a href="/view_all">View All Jobs</a></p>
+      <p><a href="/add_job">Add another Job</a></p>
+    </div>
+  </body>
+</html>
